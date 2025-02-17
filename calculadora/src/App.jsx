@@ -1,35 +1,88 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import Boton from './components/Boton';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [valorA, setValorA] = useState('');
+  const [valorB, setValorB] = useState('');
+  const [resultado, setResultado] = useState('');
+  const [activoSuma, setActivoSuma] = useState(false);
+  const [activoResta, setActivoResta] = useState(false);
+  const [activoDivision, setActivoDivision] = useState(false);
+  const [activoMultiplicacion, setActivoMultiplicacion] = useState(false);
+  
+  const resetActivos = () => {
+    setActivoSuma(false);
+    setActivoResta(false);
+    setActivoDivision(false);
+    setActivoMultiplicacion(false);
+  };
+
+  const Sumar = () => {
+    resetActivos();
+    setActivoSuma(true);
+    setResultado(Number(valorA) + Number(valorB));
+  };
+
+  const Restar = () => {
+    resetActivos();
+    setActivoResta(true);
+    setResultado(Number(valorA) - Number(valorB));
+  };
+
+  const Dividir = () => {
+    resetActivos();
+    setActivoDivision(true);
+    if (Number(valorB) !== 0) {
+      setResultado(Number(valorA) / Number(valorB));
+    } else {
+      setResultado('Error: División por 0');
+    }
+  };
+
+  const Multiplicar = () => {
+    resetActivos();
+    setActivoMultiplicacion(true);
+    setResultado(Number(valorA) * Number(valorB));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="contenedor">
+      <h2>CALCULADORA</h2>
+      <div className="inputs-container">
+        <label>
+          Valor A
+          <input
+            type="number"
+            placeholder="Inserte un valor"
+            value={valorA}
+            onChange={(e) => setValorA(e.target.value)}
+            className="input__numero"
+          />
+        </label>
+        <label>
+          Valor B
+          <input
+            type="number"
+            placeholder="Inserte un valor"
+            value={valorB}
+            onChange={(e) => setValorB(e.target.value)}
+            className="input__numero"
+          />
+        </label>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="botones">
+        <Boton variante='suma' activo={activoSuma} onClick={Sumar} />
+        <Boton variante="resta" activo={activoResta} onClick={Restar} />
+        <Boton variante="division" activo={activoDivision} onClick={Dividir} />
+        <Boton variante="multiplicacion" activo={activoMultiplicacion} onClick={Multiplicar} />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <label className="resultado">
+        Resultado
+        <input readOnly type="text" className="input__numero" value={resultado} />
+      </label>
+    </div>
+  );
 }
 
-export default App
+export default App;

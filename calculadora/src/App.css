@@ -4,39 +4,52 @@
   padding: 2rem;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+h2{
+  color:rgb(148, 12, 153);;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.botones{
+  display: flex;
+  gap: 1rem;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: #debef0;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.inputs-container {
+  display: flex;
+  gap: 2rem;
 }
 
-.card {
-  padding: 2em;
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
 }
 
-.read-the-docs {
-  color: #888;
+.input__numero {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.resultado {
+  margin-top: 1rem;
+}
+
+.input__numero:focus {
+  outline: none;
+  border-color: #880994;
+  box-shadow: 0px 0px 8px rgba(136, 12, 167, 0.5);
 }

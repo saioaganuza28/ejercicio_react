@@ -1,0 +1,9 @@
+button{
+    background-color: blueviolet;
+}
+button:focus{
+    background-color: rgb(148, 12, 153);
+}
+.activo{
+    background-color: rgb(148, 12, 153);
+}
