@@ -74,8 +74,8 @@ function App() {
       <div className="botones">
         <Boton variante='suma' activo={activoSuma} onClick={Sumar} />
         <Boton variante="resta" activo={activoResta} onClick={Restar} />
-        <Boton variante="division" activo={activoDivision} onClick={Dividir} />
         <Boton variante="multiplicacion" activo={activoMultiplicacion} onClick={Multiplicar} />
+        <Boton variante="division" activo={activoDivision} onClick={Dividir} />
       </div>
       <label className="resultado">
         Resultado
